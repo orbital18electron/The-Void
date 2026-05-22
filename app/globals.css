@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-mono: 'JetBrains Mono', monospace;
+  --void-bg: #050510;
+  --void-text: #a8b2d1;
+  --void-glow: rgba(168, 178, 209, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow: hidden;
+  background-color: var(--void-bg);
+  color: var(--void-text);
+  font-family: var(--font-mono);
+  height: 100%;
+  width: 100%;
+}
+
+/* Hide scrollbars */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glow text effect */
+.glow-text {
+  text-shadow:
+    0 0 10px rgba(168, 178, 209, 0.4),
+    0 0 20px rgba(168, 178, 209, 0.2),
+    0 0 40px rgba(168, 178, 209, 0.1);
+}
+
+/* Input glow */
+.input-glow::placeholder {
+  color: rgba(168, 178, 209, 0.2);
+}
+
+.input-glow:focus {
+  text-shadow:
+    0 0 8px rgba(168, 178, 209, 0.5),
+    0 0 16px rgba(168, 178, 209, 0.25);
+}
+
+/* Cursor blink */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: '▮';
+  animation: cursor-blink 1.2s ease-in-out infinite;
+  margin-left: 2px;
+  opacity: 0.6;
+  font-size: 0.9em;
+}
+
+/* Prevent selection on UI chrome */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
